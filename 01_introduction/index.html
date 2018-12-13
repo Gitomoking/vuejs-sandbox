@@ -9,7 +9,6 @@
   <body>
     <div id="app">
       {{ message }}
-      <span v-if="seen">Now you see me</span>
     </div>
 
     <div id="app-2">
@@ -17,6 +16,18 @@
         Hover your mouse over me for a few seconds
         to see my dynamically bound title!
       </span>
+    </div>
+
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div>
+
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
     </div>
     <script src="index.js"></script>
   </body>
