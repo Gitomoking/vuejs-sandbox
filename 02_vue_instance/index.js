@@ -1,10 +1,9 @@
-var obj = {
-  foo: 'bar'
-}
-
-Object.freeze(obj)
-
 new Vue({
-  el: '#app',
-  data: obj
+  data: {
+    a: 1
+  },
+  created: function() {
+    // `this` は vm インスタンスのこと
+    console.log('a is: ' + this.a)
+  }
 })
