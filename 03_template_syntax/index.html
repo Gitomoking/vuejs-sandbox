@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>Vue.js 03</title>
+  </head>
+  <body>
+    <div id="app">
+      <p><span>Message: {{ msg }}</span></p>
+      <p><span v-once>This will never change: {{ msg }}</span></p>
+      <p>Using mustaches: {{ rawHtml }}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      <button v-bind:disabled="isButtonDisabled">Button</button>
+      {{ ok ? 'YES' : 'NO' }}
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
