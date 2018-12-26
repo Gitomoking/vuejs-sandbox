@@ -4,7 +4,7 @@ var vm = new Vue({
     a: 1,
     msg: 'Hello',
     rawHtml: '<span style="color:red">This should be red.</span>',
-    isButtonDisabled: true,
+    isButtonDisabled: false,
     ok: true
   }
 })
