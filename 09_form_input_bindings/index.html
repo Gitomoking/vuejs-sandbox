@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>Vue.js 09</title>
+  </head>
+  <body>
+    <div id='example-3'>
+      <input v-model="message" placeholder="edit me">
+      <p>Message is: {{ message }}</p>
+
+      <span>Multiline message is:</span>
+      <p style="white-space: pre-line;">{{ ml_msg }}</p>
+      <br>
+      <textarea v-model="ml_msg" placeholder="add multiple lines"></textarea>
+      <br>
+
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames">
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+      <label for="mike">Mike</label>
+      <span>Checked names: {{ checkedNames }}</span>
+
+      <br>
+      <input type="radio" id="one" value="One" v-model="picked">
+      <label for="one">One</label>
+      <br>
+      <input type="radio" id="two" value="Two" v-model="picked">
+      <label for="two">Two</label>
+      <br>
+      <span>Picked: {{ picked }}</span>
+
+      <br>
+      <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <p>Selected: {{ selected }}</p>
+
+      <select v-model="d_selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <p>Selected: {{ d_selected }}</p>
+
+    <script src="index.js"></script>
+  </body>
+</html>
