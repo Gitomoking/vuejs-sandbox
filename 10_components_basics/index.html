@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>Vue.js 10</title>
+  </head>
+  <body>
+    <div id="components-demo">
+      <button-counter></button-counter>
+
+      <blog-post
+        v-for="post in posts"
+        v-bind:key="post.id"
+        v-bind:post="post"
+      ></blog-post>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
