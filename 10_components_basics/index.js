@@ -20,6 +20,25 @@ Vue.component('blog-post', {
   `
 })
 
+Vue.component('custom-input', {
+  props: ['value'],
+  template: `
+    <input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    >
+  `
+})
+
+Vue.component('alert-box', {
+  template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+})
+
 new Vue({
   el: '#components-demo',
   data: {
@@ -28,7 +47,8 @@ new Vue({
       { id: 2, title: 'Blogging with Vue', content: 'b' },
       { id: 3, title: 'Why Vue is so fun', content: 'c' }
     ],
-    postFontSize: 1
+    postFontSize: 1,
+    searchText: ''
   },
   methods: {
     onEnlargeText: function (enlargeAmount) {
