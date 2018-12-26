@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>Vue.js 03</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>Original message: "{{ message }}"</p>
+      <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    </div>
+
+    <div id="watch-demo">
+      <p>{{ fullName }}</p>
+    </div>
+
+    <div id="computed-demo">
+      <p>{{ fullName }}</p>
+    </div>
+
+    <div id="setter-demo">
+      <p>{{ fullName }}</p>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
