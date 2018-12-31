@@ -241,6 +241,75 @@
 
 # 12：プロパティ
 
+- DOM (HTML) のテンプレート内においては，キャメルケースのプロパティはケバブケースを使用する必要がある．
+- プロパティの型
+	- プロパティのキーと値に，それぞれのプロパティ名と型を設定したオブジェクトの配列として，プロパティを列挙することができる．
+- 静的あるいは動的なプロパティの受け渡し
+	- プロパティには任意の型の値を渡すことができる．
+- 単方向のデータフロー
+	- 全てのプロパティは，子プロパティと親プロパティの間に，単方向のデータフローを形成する．
+	- 親コンポーネントが更新されるたび，子コンポーネント内の全てのプロパティが最新の値へと更新されます．
+	- プロパティの値を変化させる場合には2つのケースがある：(1)プロパティを初期値として受け渡し，子コンポーネントにてローカルのデータとしてあとで利用したいと考える場合，プロパティの値をローカルの data の初期値として定義する：
+
+```js
+props: ['initialCounter'],
+data: function () {
+	return {
+		counter: this.initialCounter
+	}
+}
+```
+
+	- (2) プロパティを未加工の値として渡す場合，プロパティの値を使用した算出プロパティを別途定義する：
+
+```js
+props: ['size'],
+computed: {
+	normalizedSize: function () {
+		return this.size.trim().toLowerCase()
+	}
+}
+```
+
+- プロパティのバリデーション
+	- コンポーネントは，プロパティに対して既存の型などの要件を指定することができる．
+	- バリデーションは，文字列の配列の代わりに，`props` の値へとバリデーションの条件をもったオブジェクトを渡すことで指定できる：
+
+```js
+Vue.component('my-component', {
+	props: {
+		propA: Number,
+		propB: [String, Number],
+		propC: {
+			type: String,
+			required: true
+		},
+		propD: {
+			type: Number,
+			default: 100
+		},
+		propE: {
+			type: Object,
+			// オブジェクトもしくは配列のデフォルト値は，
+			// 必ずそれを生み出すための関数を返す必要がある．
+			default: function () {
+				return { message: 'hello' }
+			}
+		},
+		// カスタマイズしたバリデーション関数
+		propF: {
+			validator: function (value) {
+				// プロパティの値は，必ずいずれかの文字列でなければならない
+				return ['success', 'warning', 'danger'].indexOf(value) !== -1
+			}
+		}
+	}
+})
+```
+
+	- バリデーションが失敗した場合，Vue はコンソールにて警告する．
+	- `type` は，次のネイティブコンストラクタのいずれか：String, Number, Boolean, Array, Object, Data, Function, Symbol
+
 # 13：カスタムイベント
 
 # 14：スロット
