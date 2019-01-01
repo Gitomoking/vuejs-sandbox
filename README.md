@@ -42,6 +42,8 @@
 
 # vuejs-sandbox
 
+- [Vue.js ガイド](https://jp.vuejs.org/v2/guide/index.html)
+
 # 01：はじめに
 
 - 宣言的レンダリング
@@ -319,6 +321,13 @@ Vue.component('my-component', {
 # 16：特別な問題に対処する
 
 # 17：Enter/Leave とトランジション一覧
+
+Vue は，DOM からアイテムが追加，更新，削除されたときにトランジション効果を適用するための方法を複数提供している：
+
+- 自動的に CSS トランジションやアニメーションのためのクラスを適用する．
+- Animate.css のようなサードパーティの CSS アニメーションライブラリを用いる．
+- トランジションフックが実行されている間，JavaScript を使って直接 DOM 操作を行う．
+- Velocity.js のようなサードパーティの JavaScript アニメーションライブラリを用いる．
 
 # 18：状態のトランジション
 
